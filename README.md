@@ -1,16 +1,16 @@
 # Welcome to Remix!
 
-- [Remix Docs](https://remix.run/docs)
+-   [Remix Docs](https://remix.run/docs)
 
 ## Development
 
 From your terminal:
 
 ```sh
-npm run dev
+npm run dev -- --host
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+This starts your app in development mode, rebuilding assets on file changes. -- --host cause the dev server to listen on all hosts so you can connect from other clients on the network.
 
 ## Deployment
 
@@ -34,5 +34,5 @@ If you're familiar with deploying node applications, the built-in Remix app serv
 
 Make sure to deploy the output of `remix build`
 
-- `build/server`
-- `build/client`
+-   `build/server`
+-   `build/client`
