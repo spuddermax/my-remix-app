@@ -152,10 +152,10 @@ export async function deleteContact(id: string) {
 	},
 	{
 		avatar:
-			"/contact-photos/AlexAnderson.jpg",
-		first: "Alex",
-		last: "Anderson",
-		twitter: "@ralex1993",
+			"/contact-photos/JamesAxel.jpg",
+		first: "James",
+		last: "Axel",
+		twitter: "@ajames1993",
 	},
 	{
 		avatar:
@@ -335,6 +335,13 @@ export async function deleteContact(id: string) {
 		first: "Aisha",
 		last: "Gupta",
 		twitter: "@AishaG",
+	},
+	{
+		avatar:
+			"/contact-photos/AlexisArcher.jpg",
+		first: "Alexis",
+		last: "Archer",
+		twitter: "@AArcher",
 	},
 ].forEach((contact) => {
 	fakeContacts.create({
