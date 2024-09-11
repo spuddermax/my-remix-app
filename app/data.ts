@@ -343,6 +343,13 @@ export async function deleteContact(id: string) {
 		last: "Archer",
 		twitter: "@AArcher",
 	},
+	{
+		avatar:
+			"/contact-photos/SandraIvins.jpg",
+		first: "Sandra",
+		last: "Ivins",
+		twitter: "@SAIvins",
+	},
 ].forEach((contact) => {
 	fakeContacts.create({
 		...contact,
