@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { useLocation } from "@remix-run/react";
 
 import {
@@ -14,12 +14,11 @@ import {
 
 import type { LinksFunction } from "@remix-run/node";
 import appStylesHref from "./app.css?url";
-import { getContacts } from "./data";
 import { createEmptyContact, getContacts } from "./data";
 
 export const action = async () => {
 	const contact = await createEmptyContact();
-	return json({ contact });
+	return redirect(`/contacts/${contact.id}/edit`);
 };
 
 export const loader = async () => {
