@@ -15,6 +15,12 @@ import {
 import type { LinksFunction } from "@remix-run/node";
 import appStylesHref from "./app.css?url";
 import { getContacts } from "./data";
+import { createEmptyContact, getContacts } from "./data";
+
+export const action = async () => {
+	const contact = await createEmptyContact();
+	return json({ contact });
+};
 
 export const loader = async () => {
 	const contacts = await getContacts();
@@ -42,7 +48,16 @@ export default function App() {
 			</head>
 			<body>
 				<div id="sidebar">
-					<h1>Remix Contacts</h1>
+					<h1>
+						<a
+							href="/"
+							style={{
+								color: "inherit",
+								textDecoration: "none",
+							}}>
+							Remix Contacts
+						</a>
+					</h1>
 					<div>
 						<Form id="search-form" role="search">
 							<input
