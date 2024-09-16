@@ -1,9 +1,9 @@
 import { json, redirect } from "@remix-run/node";
-import { useLocation } from "@remix-run/react";
+import { useLocation, useNavigation } from "@remix-run/react";
 
 import {
 	Form,
-	Link,
+	NavLink,
 	Links,
 	Meta,
 	Outlet,
@@ -32,7 +32,7 @@ export const links: LinksFunction = () => [
 
 export default function App() {
 	const { contacts } = useLoaderData<typeof loader>();
-	const location = useLocation();
+	const navigation = useNavigation();
 
 	return (
 		<html lang="en">
@@ -69,7 +69,7 @@ export default function App() {
 							<div
 								id="search-spinner"
 								aria-hidden
-								hidden={true}
+								hidden={navigation.state === "idle"}
 							/>
 						</Form>
 						<Form method="post">
@@ -87,13 +87,10 @@ export default function App() {
 									)
 									.map((contact) => (
 										<li key={contact.id}>
-											<Link
+											<NavLink
 												to={`contacts/${contact.id}`}
-												className={
-													location.pathname ===
-													`/contacts/${contact.id}`
-														? "active"
-														: ""
+												className={({ isActive }) =>
+													isActive ? "active" : ""
 												}>
 												{contact.first ||
 												contact.last ? (
@@ -108,7 +105,7 @@ export default function App() {
 												{contact.favorite ? (
 													<span>★</span>
 												) : null}
-											</Link>
+											</NavLink>
 										</li>
 									))}
 							</ul>
@@ -119,7 +116,12 @@ export default function App() {
 						)}
 					</nav>
 				</div>
-				<div id="detail">
+				<div 
+					id="detail"
+					className={
+						navigation.state === "loading" ? "loading" : ""
+					}
+				>
 					<Outlet />
 				</div>
 				<ScrollRestoration />
