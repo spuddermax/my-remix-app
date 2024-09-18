@@ -1,16 +1,17 @@
 import { json, redirect } from "@remix-run/node";
-import { useLocation, useNavigation } from "@remix-run/react";
 
 import {
 	Form,
-	NavLink,
 	Links,
 	Meta,
+	NavLink,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
 	useLoaderData,
-} from "@remix-run/react";
+	useNavigation,
+	useSubmit,
+  } from "@remix-run/react";
 
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import appStylesHref from "./app.css?url";
@@ -38,6 +39,7 @@ export const links: LinksFunction = () => [
 export default function App() {
 	const { contacts, q } = useLoaderData<typeof loader>();
 	const navigation = useNavigation();
+	const submit = useSubmit();
 
 	useEffect(() => {
 		const searchField = document.getElementById("q");
@@ -70,7 +72,13 @@ export default function App() {
 						</a>
 					</h1>
 					<div>
-						<Form id="search-form" role="search">
+						<Form
+							id="search-form"
+							onChange={(event) =>
+								submit(event.currentTarget)
+							  }
+							role="search"
+							>
 							<input
 								id="q"
 								aria-label="Search contacts"
