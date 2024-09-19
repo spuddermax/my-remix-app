@@ -350,6 +350,15 @@ export async function deleteContact(id: string) {
 		last: "Ivins",
 		twitter: "@SAIvins",
 	},
+	{
+		avatar:
+			"/contact-photos/JennyLanders.jpg",
+		first: "Jenny",
+		last: "Landers",
+		twitter: "@JennyLanders",
+	},
+
+
 ].forEach((contact) => {
 	fakeContacts.create({
 		...contact,
