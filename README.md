@@ -1,38 +1,67 @@
-# Welcome to Remix!
+# Remix Contacts
 
--   [Remix Docs](https://remix.run/docs)
+A contact management demo application built as part of the official [Remix tutorial](https://remix.run/docs/en/main/start/tutorial). This project is intended for learning and experimentation purposes only.
+
+## Features
+
+- **Contact Directory** — Sidebar lists all contacts sorted by last name
+- **Search** — Real-time fuzzy search by name
+- **CRUD Operations** — Create, view, edit, and delete contacts
+- **Favorites** — Star/unstar contacts for quick access
+- **Avatar Modal** — Click a contact's photo to view it full-size
+- **Dark Theme** — Dark UI with blue and gold accent colors
+
+## Tech Stack
+
+- **Remix** 2.x — Full-stack React framework
+- **React** 18 — UI library
+- **Vite** 6 — Build tool
+- **TypeScript** — Type safety
+- **match-sorter** — Fuzzy search/sorting
+
+## Data
+
+Contacts are stored in an in-memory fake database (`app/data.ts`) seeded with 40 sample contacts. Data resets on app restart.
+
+## Project Structure
+
+```
+app/
+├── root.tsx                              # App shell with sidebar layout
+├── app.css                               # Global styles
+├── data.ts                               # In-memory contact database
+├── components/
+│   └── Modal.tsx                         # Avatar enlargement modal
+└── routes/
+    ├── _index.tsx                        # Home page
+    ├── contacts.$contactId.tsx           # Contact detail view
+    ├── contacts.$contactId_.edit.tsx     # Contact edit form
+    └── contacts.$contactId.destroy.tsx   # Contact delete action
+public/
+└── contact-photos/                       # Avatar images
+```
 
 ## Development
-
-From your terminal:
 
 ```sh
 npm run dev -- --host
 ```
 
-This starts your app in development mode, rebuilding assets on file changes. -- --host cause the dev server to listen on all hosts so you can connect from other clients on the network.
+Starts the dev server on all network interfaces.
 
-## Deployment
-
-First, build your app for production:
+## Production
 
 ```sh
 npm run build
-```
-
-Then run the app in production mode:
-
-```sh
 npm start
 ```
 
-Now you'll need to pick a host to deploy it to.
+Build output goes to `build/server` and `build/client`.
 
-### DIY
+## Requirements
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+- Node.js >= 20.0.0
 
-Make sure to deploy the output of `remix build`
+## Disclaimer
 
--   `build/server`
--   `build/client`
+This project was created as a learning exercise following the Remix tutorial. It is provided "as is" without warranty of any kind, express or implied. The in-memory data store is not suitable for production use. Use at your own risk.
