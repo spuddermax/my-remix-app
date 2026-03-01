@@ -70,6 +70,8 @@ The following `tar` vulnerabilities exist as transitive dev-only dependencies vi
 - GHSA-34x7-hfp2-rc4v — Arbitrary File Creation/Overwrite via Hardlink Path Traversal
 - GHSA-r6q2-hw4h-h46w — Race Condition in Path Reservations (macOS APFS)
 - GHSA-8qq5-rm4j-mr97 — Arbitrary File Overwrite and Symlink Poisoning
+- GHSA-67mh-4wv8-2f99 — esbuild dev server request leak (via `@remix-run/dev`, `@vanilla-extract/integration`)
+- GHSA-f7f6-9jq7-3rqj — estree-util-value-to-estree prototype pollution (via `remark-mdx-frontmatter`)
 
 ## Disclaimer
 
