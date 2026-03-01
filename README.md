@@ -62,6 +62,15 @@ Build output goes to `build/server` and `build/client`.
 
 - Node.js >= 20.0.0
 
+## Known Security Advisories
+
+The following `tar` vulnerabilities exist as transitive dev-only dependencies via `@remix-run/dev` → `cacache` → `tar`. They do not affect production builds and have no upstream fix available at this time.
+
+- GHSA-83g3-92jg-28cx — Arbitrary File Read/Write via Hardlink Target Escape
+- GHSA-34x7-hfp2-rc4v — Arbitrary File Creation/Overwrite via Hardlink Path Traversal
+- GHSA-r6q2-hw4h-h46w — Race Condition in Path Reservations (macOS APFS)
+- GHSA-8qq5-rm4j-mr97 — Arbitrary File Overwrite and Symlink Poisoning
+
 ## Disclaimer
 
 This project was created as a learning exercise following the Remix tutorial. It is provided "as is" without warranty of any kind, express or implied. The in-memory data store is not suitable for production use. Use at your own risk.
